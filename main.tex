@@ -1,0 +1,206 @@
+%\documentclass{article}
+
+
+\listfiles
+%\documentclass[final,letterpaper,4pt,times,twocolumn]{elsarticle}
+\documentclass[letterpaper,10pt,times,preprint]{elsarticle}
+
+\usepackage{graphicx} % Required for inserting images
+
+%\documentclass[a4paper,5pt,twocolumn,preprint]{elsarticle}
+
+\journal{TexExchange}
+    \journal{Journal of \LaTeX\ Templates}
+    
+    \usepackage{tgtermes}
+    \usepackage{tikz}
+    \usepackage{hyperref}
+    \usepackage[version=3]{mhchem}
+    \newcommand{\mst}{\ce{Mg2Si_{$x$}Sn_{$1-x$}}}
+    \newcommand{\zT}{$zT$}
+    
+    \usepackage{siunitx}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \usepackage[letterpaper, portrait, margin=0.60in]{geometry}
+
+    \usepackage{hhline}  % http://ctan.org/pkg/hhline
+    \usepackage{float}
+    %\usepackage{subfig}
+    \usepackage{multirow}
+    \usepackage{graphicx,booktabs}
+    \usepackage{booktabs,tabularx}
+    %\usepackage{showframe}
+    \usepackage{xfrac}
+    \usepackage{titlesec}
+    \usepackage{wrapfig,booktabs}
+    \usepackage{mwe}
+    \usepackage{adjustbox}
+    %\usepackage[demo]{graphicx}
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage{makecell}
+    \usepackage{rotating}
+    %\usepackage{mathrsfs}
+    \usepackage[permil]{overpic}
+    \usepackage{pict2e} % for drawing polygons
+    \setlength{\parskip}{1em}
+    \parindent=15pt
+    \usepackage{amsmath,array, amssymb}
+    %\usepackage[usenames,dvipsnames]{color}
+    \usepackage{xcolor,soul}
+    \usepackage{tcolorbox}
+    \usepackage{calrsfs}
+%    \usepackage{array}
+    \usepackage{longtable}
+    \usepackage{ragged2e}
+    
+\hypersetup{colorlinks,breaklinks,
+            urlcolor=Maroon,
+            linkcolor=Maroon}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newcommand{\etal}{\textit{et al}.}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \setcounter{secnumdepth}{3}
+    \setlength{\columnsep}{18.0pt}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \parindent=0pt
+
+    \def\correction#1{%
+    \abovedisplayshortskip=#1\baselineskip\relax\belowdisplayshortskip=#1\baselineskip\relax%
+    \abovedisplayskip=#1\baselineskip\relax\belowdisplayskip=#1\baselineskip\relax}
+
+    \arrayrulewidth=1pt\relax
+    \tabcolsep=5pt\relax
+    %\arrayrulecolor{red}
+    \fboxsep=\tabcolsep\relax
+    \fboxrule=\arrayrulewidth\relax
+
+    \newcolumntype{A}[2]{%
+    >{\minipage{\dimexpr#1\linewidth-2\tabcolsep-#2\arrayrulewidth\relax}\vspace\tabcolsep}%
+    c<{\vspace\tabcolsep\endminipage}}
+    
+
+\newenvironment{Table}[4]{%
+    \longtable{%
+        |A{#1}{1.5}% for figure
+        |>{\centering$\displaystyle}A{#2}{1}<{$}% for inline equation
+        |>{\correction{-1}\strut\[}A{#3}{1}<{\]\strut}% for displayed equation
+        |>{\centering}A{#4}{1.5}% for text
+        |}\hline\ignorespaces}{%
+    \endlongtable\ignorespacesafterend}
+
+\newcommand{\dummy}{%
+    It is practically a big lie that \LaTeX\ 
+    makes you focus on the content without
+    bothering about the layout.}
+
+\newcommand{\Row}{%
+    \includegraphics[widcbh=\linewidth]{newton}  &
+     &
+     &
+    \fcolorbox{cyan}{yellow}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\dummy}}
+    \tabularnewline\hline}    
+
+    %%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Image scale bar
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+    %%
+    \usepackage{siunitx}
+
+    \usepackage{tikz}
+    \usepackage{color}
+    \definecolor{scalebgcolor}{rgb}{0.08,0.52,0.80}     
+    %% To change the backgroundcolor, adjust the scalebgcolor variable to use the desired color. Add the following code to your preamble:
+
+    \newcommand{\scalebarbackground}[5][white]{
+        \begin{tikzpicture}
+            \draw (0,0) node[anchor=south east,inner sep=0] (image) { #2 };
+                \begin{scope}[x={(image.south west)},y={(image.north west)}]
+                \fill [fill=scalebgcolor, fill opacity=0.75] (0.02,1.3em) rectangle (#5*#4/#3+0.04,0.1em);
+                %\draw [#1, line width=0.2em] (0.04,1.2em) -- node[below,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,1.2em);
+                \draw [#1, line width=0.2em] (0.02,0.4em) -- node[above,inner sep=0.1em, font=\footnotesize] {\SI{#5}{\nano \meter}} (#5*#4/#3+0.04,0.4em);
+            \end{scope}
+        \end{tikzpicture}
+    }
+
+
+\newcommand\bigzero{%
+    \makebox[0pt]{\text{\normalsize Symmetric}}}
+    %\makebox[0pt]{Some text} over this text
+    %\makebox[15ex][s]{Censored text}\hspace{-15ex}\makebox[15ex][s]{X X X X X}
+    %Text \makebox[2\width][r]{running away}
+  
+
+%% `Elsevier LaTeX' style, distributed in TeX Live 2019
+\bibliographystyle{elsarticle-num}
+% \usepackage{numcompress}\bibliographystyle{elsarticle-num-names}
+% \bibliographystyle{elsarticle-harv}\biboptions{authoryear}
+%%%%%%%%%%%%%%%%%%%%%%%
+\biboptions{numbers,sort&compress}
+
+%\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+\begin{frontmatter}
+    % write the the authors and the affiliations as needed with a line break \\
+    \title{\huge{{}}}
+    \author{\large{}$^a$ }
+    \address{$^a$Department of Materials Science and Engineering, Texas A\&M University, College Station, TX 77843, USA}
+    \address{$^b$Department of Industrial and Systems Engineering, Texas A\&M University, College Station, TX 77843, USA}
+    \date{02/10/2025}
+
+    \begin{abstract}
+    xxxx
+    \end{abstract}
+
+    \begin{keyword}
+    Keywords: ...
+    \end{keyword}
+
+\end{frontmatter}
+
+Word Count: 
+
+
+
+\section{Introduction}
+
+\end{document}
